@@ -1,0 +1,8 @@
+subdif_*
+d_*
+*.o
+*.x
+*.txt
+*.png
+*~
+*kdev4
