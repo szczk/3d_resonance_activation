@@ -44,9 +44,9 @@ int main ( int argc , char ** argv )
 
      DichotomicAnalysis * dichotomicAnalysis = new DichotomicAnalysis();
 
-    //for ( double p = -5.0; p< 5.0; p += 0.1 ) 
+    for ( double p = -5.0; p< 5.0; p += 0.1 ) 
      {
-       double p = 0.0;
+          //double p = 0.0;
 
           double gamma = pow ( 10.0,p );
           double averageTime = 0.0;
