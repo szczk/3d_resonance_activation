@@ -89,7 +89,7 @@ void AverageTimeMeasure:: save()
      ofstream results ( resultsFilename );
      sprintf ( resultsFilename,"alpha_%1.2f_Ep_%1.1f_Em_%1.1f_results.txt", alpha,eplus,eminus );
 
-     results << "#log10( (gamma)/T )\tlog10( (MFPT*T) )\terror\n";
+     results << "#log10( (gamma)/T )\tlog10( (MFPT*T) )\tstdev(MFPT)\tlog10((MFPT) + sdev(MFPT))\tlog10((MFPT) + sdev(MFPT))\tlog10((MFPT) - sdev(MFPT))\n";
 
      map<double,SingleGammaAverageTime *>::iterator it;
 
@@ -120,10 +120,10 @@ void AverageTimeMeasure:: save()
 
           double X = log10 ( ( gamma * L*L ) /T );
           double Y = log10 ( ( averageTime * T ) / ( L*L ) );
-          double Y_err = abs ( averageTime_err/ ( Y * log ( 10.0 ) ) ) ;
+          double Y_err_plus = log10( averageTime + averageTime_err ) ;
+	  double Y_err_minus = log10( averageTime - averageTime_err ) ;
 
-
-          results << X << "\t" << Y <<"\t"<< Y_err <<endl;
+          results << X << "\t" << Y <<"\t"<< averageTime_err <<"\t"  << Y_err_plus <<"\t" << Y_err_minus <<endl;
 
           if ( smallestMFPT > Y ) {
                smallestMFPT = Y;
