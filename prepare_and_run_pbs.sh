@@ -45,12 +45,12 @@ export LC_NUMERIC="en_US.UTF-8"
 
 pp=0
 ep=8.0
-em=0.0
+em=8.0
 for alpha in $(seq -w 0.5 0.2 1.9)
 do
    for sigma in 1.0 #$(seq -w 0.2 0.2 5.0)
     do
-      for num in $(seq 1 10)
+      for num in $(seq 1 20)
         do
       #   for pp in $(seq -5 0.1 5)
        #   do
